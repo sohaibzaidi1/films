@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Country extends Model
 {
-    use HasFactory;
+    protected $primaryKey = 'id';
+    protected $fillable = ['name'];
+
+    // Define the many-to-many relationship with films through film_country
+    public function films()
+    {
+        return $this->belongsToMany(Film::class, 'film_country', 'id', 'film_id');
+    }
 }

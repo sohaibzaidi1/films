@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Genres extends Model
 {
-    use HasFactory;
+    protected $primaryKey = 'id';
+    protected $fillable = ['name'];
+
+    // Define the many-to-many relationship with films through film_genre
+    public function films()
+    {
+        return $this->belongsToMany(Film::class, 'film_genre', 'genre_id', 'film_id');
+    }
 }

@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Photos extends Model
 {
-    use HasFactory;
+    protected $primaryKey = 'id';
+    protected $fillable = ['photo_path'];
+
+    // Define the inverse one-to-many relationship with Film
+    public function film()
+    {
+        return $this->belongsTo(Film::class, 'film_id');
+    }
 }

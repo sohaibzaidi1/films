@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comments extends Model
 {
-    use HasFactory;
+    protected $fillable = ['name', 'comment'];
+
+    // Define the inverse one-to-many relationship with Film
+    public function film()
+    {
+        return $this->belongsTo(Film::class, 'film_id');
+    }
 }
