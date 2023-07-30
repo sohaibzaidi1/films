@@ -1,8 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-Route::get('/', 'Auth\Admin\LoginController@login')->name('admin.auth.login');
 
+Route::get('/', function () {
+    return redirect()->route('films');
+});
+
+//Route::get('/', 'Auth\Admin\LoginController@login')->name('admin.auth.login');
+Route::get('/films', 'Frontend\HomeController@index')->name('films');
 // Admin Auth
 Route::get('login', 'Auth\Admin\LoginController@login')->name('admin.auth.login');
 Route::post('login', 'Auth\Admin\LoginController@loginAdmin')->name('admin.auth.loginAdmin');

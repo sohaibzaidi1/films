@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\Backend;
 use App\Models\Films;
 use App\Http\Controllers\Api\ResponseController;
 use App\Http\Resources\FilmResource;
-
+use Illuminate\Http\Request;
 class FilmApiController extends ResponseController
 {
 
@@ -19,10 +19,17 @@ class FilmApiController extends ResponseController
      * @return \Illuminate\Http\Response
      */
 
-    public function index() {
-        
-        $films = FilmResource::collection(Films::with('ticketPricing', 'filmRating', 'countries', 'genres', 'photos', 'comments')->get());
-        
+    public function index(Request $request) {
+        $perPage = $request->input('perPage', 1);
+
+        $films = Films::with('ticketPricing', 'filmRating', 'countries', 'genres', 'photos', 'comments')->paginate($perPage);
+
+        $films = [
+            'data' => FilmResource::collection($films->getCollection()),
+            'total' => $films->lastPage(),
+            'currentPage' => $films->currentPage(),
+        ];
+
         if ($films) {
             return $this->sendResponse($films, 'success');
         } else {

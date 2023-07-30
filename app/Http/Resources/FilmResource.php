@@ -21,6 +21,7 @@ class FilmResource extends JsonResource
         return [  
             'id' => $this->id,
             'name' => $this->name,
+            'description' => $this->description,
             'release_date' => $this->release_date,
             'rating' => $this->filmRating->rating,
             'ticket_price' => $this->ticketPricing->price,
