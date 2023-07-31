@@ -1,13 +1,5 @@
 # Laravel 8
 
-## Features
-
-    1. Laravel 8 Framework
-    2. Laravel-Permission by spatie/laravel-permission
-    4. Yajra Datatable by Yajra
-    7. Laravel Ajax CRUD
-    8. Bootstrap 4
-
 ### Requirements
 
     1. PHP version upto 7.3    
