@@ -23,11 +23,8 @@
         3: php artisan migrate
         4: php artisan db:seed
         5: npm install
-        6: npm run build
+        6: npm run dev
     4. Run php artisan key:generate in the terminal
 
-### Login
-    email : admin@admin.com
-    pass :  123456
 
 Email me : suhaibzaidi@gmail.com
