@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comments extends Model
 {
-    protected $fillable = ['name', 'comment'];
+    protected $fillable = ['film_id','name', 'comment'];
 
     // Define the inverse one-to-many relationship with Film
     public function film()

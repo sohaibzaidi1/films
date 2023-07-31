@@ -17,15 +17,15 @@ class PhotoSeeder extends Seeder
         Photos::insert([
             [
                 'film_id' => 1,
-                'photo_path' => 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRELEr5bWH1Z9ZlYjofDbRoW0ToFJop6YlcJuVU8lAYt2peph_n',
+                'photo_path' => 'photos/extraction.jpeg',
             ],
             [
                 'film_id' => 2,
-                'url' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVcsf2bpo5cKHGk4HRob4v6M0IFiyZdPuRGXUvxHiHhDdAOYh7',
+                'url' => 'photos/13hours.jpeg',
             ],
             [
                 'film_id' => 3,
-                'url' => 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS7zmykuf6WW_rqjD04tJMcjS4OJB5NvkMGV5PJR7LQwLb4Iffj',
+                'url' => 'photos/13hours.jpeg',
             ],
         ]);
     }

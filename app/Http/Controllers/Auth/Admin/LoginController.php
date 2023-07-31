@@ -50,11 +50,11 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
         // Attempt to log the user in
-        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password, 'status' => 1], $request->remember)) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => 1], $request->remember)) {
 
             // if successful, then create laravel passport token and redirect to their intended location
-            $user = Auth::guard('admin')->user();
-            return redirect()->route('admin.dashboard');
+            // $user = Auth::guard('admin')->user();
+            return redirect()->route('films');
         }
         // if unsuccessful, then redirect back to the login with the form data
         $errors = ['email' => 'Sorry! Wrong email or password '];
@@ -64,7 +64,7 @@ class LoginController extends Controller
 
     public function logout()
     {
-        Auth::guard('admin')->logout();
+        Auth::logout();
         return redirect()->route('admin.auth.login');
     }
 }

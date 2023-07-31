@@ -19,21 +19,18 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- Add these lines to the head section of your HTML file -->
     <!-- Add these lines to the head section of your HTML file -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.7.2/simplelightbox.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.7.2/simple-lightbox.min.js"></script>
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- <meta name="csrf-token" content="{{ csrf_token() }}"> -->
 </head>
 <body>
     
     <div id="app">
         @yield('content')
     </div>
+    <script>
+        const authenticatedUser = @json(auth()->user());
+    </script>
     <!-- <script src="{{ mix('js/app.js') }}"></script> -->
-<!-- Place these lines at the end of your HTML file, before the closing </body> tag -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-<script src="resources/js/app.js"></script> -->
-
 </body>
 </html>

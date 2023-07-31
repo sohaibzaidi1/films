@@ -23,6 +23,12 @@ import Film from './components/FilmComponent.vue';
 
 Vue.component('film', Film);
 
+Vue.prototype.$auth = {
+    user: authenticatedUser, // Pass the authenticated user data from Blade to Vue
+    check() {
+        return this.user !== null; // Add any custom logic to check authentication
+    },
+};
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
