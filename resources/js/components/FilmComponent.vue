@@ -1,8 +1,15 @@
 <template>
     <div class="container py-4">
-        <button @click="logout" class="btn btn-danger" v-if="$auth.check()">Logout</button>
-        <button @click="redirectToLogin" class="btn btn-primary" v-else>Login</button>
+      <div v-if="$auth.check()">
+        <button @click="logout" class="btn btn-danger" >Logout</button>
         <button @click="redirectToCreate" class="btn btn-primary">Create</button>
+      </div>
+      <div v-else>
+        <button @click="redirectToLogin" class="btn btn-primary" >Login</button>
+        <button @click="redirectToSignup" class="btn btn-primary" >Signup</button>
+      </div>
+        
+        
 
       <h1 class="text-center mb-4">Film List</h1>
       <div v-if="films.length === 0" class="text-center">No films found.</div>
@@ -153,6 +160,9 @@
         },
         redirectToCreate(){
             window.location.href = '/film/create';
+        },
+        redirectToSignup(){
+          window.location.href = '/signup';
         },
     },
   };
